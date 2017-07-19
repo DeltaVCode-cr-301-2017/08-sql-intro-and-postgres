@@ -44,7 +44,7 @@ app.get('/new', function(request, response) {
 // REVIEW: Routes for making API calls to use CRUD Operations on our database
 app.get('/articles', function(request, response) {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // line 48 runs a query when article.fetch selects all article and pulls into page. #3MVC
+  // line 48 runs a query when article.fetch selects all article and pulls into page. #3MVC. This is Read in CRUD.
   client.query('SELECT * FROM articles')
   .then(function(result) {
     response.send(result.rows);
@@ -56,7 +56,7 @@ app.get('/articles', function(request, response) {
 
 app.post('/articles', function(request, response) {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // line 60 runs a querry when article.insertRecord is called. line 60 #3MVC, line 61-71 #4MVC
+  // line 60 runs a query when article.insertRecord is called. line 60 #3MVC, line 61-71 #4MVC. This is Create in CRUD.
   client.query(
     `INSERT INTO
     articles(title, author, "authorUrl", category, "publishedOn", body)
@@ -81,7 +81,7 @@ app.post('/articles', function(request, response) {
 
 app.put('/articles/:id', function(request, response) {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // Put your response here...
+  // The View runs Article.updateRecord which preforms a request #2 line 82 to the server which preforms a query #3 line 85 to update the articles and returns a response #5 line 101 to the view with the new article data. This is the Update in CRUD.
   client.query(
     `UPDATE articles
     SET
