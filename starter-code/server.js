@@ -123,7 +123,7 @@ app.delete('/articles/:id', function(request, response) {
 
 app.delete('/articles', function(request, response) {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // Put your response here...
+  // The view runs the method truncateTable which preforms a request #2 line 124 to the server which runs a query on the database to clear the table #3 line 127 and returns a response to the view #5 line 116. This is Delete in CRUD.
   client.query(
     'DELETE FROM articles;'
   )
@@ -136,7 +136,7 @@ app.delete('/articles', function(request, response) {
 });
 
 // COMMENT: What is this function invocation doing?
-// Put your response here...
+// calls function loadDB.
 loadDB();
 
 app.listen(PORT, function() {
@@ -148,7 +148,7 @@ app.listen(PORT, function() {
 ////////////////////////////////////////
 function loadArticles() {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // Put your response here...
+  // The server's loadDB function calls loadArticles. loadArticles then submits a query #3 line 153 that results in the number of rows in the table #4 line 153. If the there are no rows it reads the hackerIpsum.json and populates the table. This Reads and then Creates in CRUD.
   client.query('SELECT COUNT(*) FROM articles')
   .then(result => {
     // REVIEW: result.rows is an array of objects that Postgres returns as a response to a query.
