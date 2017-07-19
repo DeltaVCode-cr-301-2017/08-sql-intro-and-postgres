@@ -102,9 +102,6 @@ articleView.create = function() {
   $('pre code').each(function(i, block) {
     hljs.highlightBlock(block);
   });
-
-  $('#export-field').show();
-  $('#article-json').val(`${JSON.stringify(article)},`);
 };
 
 articleView.submit = function(event) {
