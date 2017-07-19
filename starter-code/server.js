@@ -1,6 +1,7 @@
 'use strict';
 
 // TODO: Install and require the NPM Postgres package 'pg' into your server.js, and ensure that it is then listed as a dependency in your package.json
+const pg = require('pg');
 const fs = require('fs');
 const express = require('express');
 
