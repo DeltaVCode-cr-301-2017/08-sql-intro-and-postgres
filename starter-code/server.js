@@ -20,7 +20,7 @@ const conString = 'postgres://POSTGRES:minute5@localhost:5432/kilovolt';
 //       This is how it knows the URL and, for Windows and Linux users, our username and password for our
 //       database when client.connect is called on line 26. Thus, we need to pass our conString into our
 //       pg.Client() call.
-const client = new pg.Client('something needs to go here... read the instructions above!');
+const client = new pg.Client(conString);
 
 // REVIEW: Use the client object to connect to our DB.
 client.connect();
